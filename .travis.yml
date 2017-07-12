@@ -5,6 +5,8 @@ services:
   - docker
 
 before_install:
-  - ./app1/gradlew clean buildDocker
-  - ./app2/gradlew clean buildDocker
-  - ./app1/rundocker.sh
+  - cd app2
+  - gradle clean buildDocker
+  - cd ../app1/
+  - gradle clean buildDocker
+  - ./rundocker.sh
